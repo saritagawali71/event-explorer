@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101126">
+  <meta name="description" content="Discover, explore and apply for exciting events with Event Explorer.">
+  <title>Event Explorer | Discover What's Happening</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- Background decoration -->
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+  <header class="site-header">
+    <div class="nav-container">
+
+      <a href="#" class="brand" aria-label="Event Explorer home">
+        <span class="brand-icon">✳</span>
+        <span class="brand-name">Event<span>Explorer</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#explore" class="nav-link active">Explore</a>
+        <a href="#events" class="nav-link">Events</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <div class="account-area">
+        <span id="userWelcome" class="user-welcome">Welcome, Guest</span>
+        <button id="signInBtn" class="btn btn-outline btn-small">
+          Sign In
+        </button>
+        <button id="registerBtn" class="btn btn-primary btn-small">
+          Get Started
+        </button>
+        <button id="signOutBtn" class="btn btn-outline btn-small" hidden>
+          Sign Out
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+  <main>
+    <section class="hero" id="explore">
+      <div class="hero-inner">
+
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            YOUR NEXT EXPERIENCE STARTS HERE
+          </div>
+
+          <h1>
+            Discover events.<br>
+            <span class="gradient-text">Create memories.</span>
+          </h1>
+
+          <p class="hero-description">
+            From electrifying concerts to inspiring workshops,
+            find your people, explore your passions and be part
+            of something unforgettable.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#events" class="btn btn-primary btn-large">
+              Explore Events <span>↗</span>
+            </a>
+            <span class="hero-note">
+              <span class="note-icon">✦</span>
+              Find. Explore. Be Part of It!
+            </span>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <strong>8+</strong>
+              <span>Exciting Events</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <strong>7</strong>
+              <span>Categories</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <strong>∞</strong>
+              <span>Possibilities</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-glow"></div>
+          <div class="art-card art-card-back">
+            <div class="art-mini-label">UPCOMING EXPERIENCE</div>
+            <div class="art-back-lines">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <div class="art-card art-card-front">
+            <div class="art-photo">
+              <div class="art-photo-overlay"></div>
+              <span class="art-emoji">🎸</span>
+              <span class="art-photo-tag">LIVE MUSIC</span>
+            </div>
+            <div class="art-card-body">
+              <span class="art-date">OCT 16 · NASHIK</span>
+              <h3>Live Music Fest</h3>
+              <p>One night. Endless memories.</p>
+              <div class="art-card-footer">
+                <span>Discover more</span>
+                <span class="art-arrow">↗</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-chip chip-top">
+            <span>✦</span> Find your vibe
+          </div>
+          <div class="floating-chip chip-bottom">
+            <span>♡</span> Save your favorites
+          </div>
+          <div class="art-sparkle sparkle-one">✦</div>
+          <div class="art-sparkle sparkle-two">✧</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         EVENT EXPLORER
+    ========================== -->
+    <section class="explore-section section-container" id="events">
+
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            FIND YOUR NEXT ADVENTURE
+          </div>
+          <h2>Explore <span class="gradient-text">Events</span></h2>
+          <p>Discover experiences that match your interests.</p>
+        </div>
+        <div class="section-decoration">✳</div>
+      </div>
+
+      <!-- Search and filters -->
+      <div class="filter-panel">
+
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search events, places, interests..."
+            aria-label="Search events"
+            autocomplete="off"
+          >
+          <kbd class="search-shortcut">⌕</kbd>
+        </div>
+
+        <div class="filter-control">
+          <label for="categoryFilter">Category</label>
+          <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="Music">Music</option>
+            <option value="Tech">Tech</option>
+            <option value="Workshops">Workshops</option>
+            <option value="Food & Drink">Food &amp; Drink</option>
+            <option value="Sports">Sports</option>
+            <option value="Arts">Arts</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+
+        <div class="filter-control">
+          <label for="dateFilter">Date</label>
+          <select id="dateFilter">
+            <option value="all">All Dates</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="thisMonth">This Month</option>
+            <option value="past">Past Events</option>
+          </select>
+        </div>
+
+        <div class="filter-control">
+          <label for="sortFilter">Sort By</label>
+          <select id="sortFilter">
+            <option value="nearest">Date (Nearest)</option>
+            <option value="farthest">Date (Farthest)</option>
+            <option value="az">Name (A–Z)</option>
+            <option value="za">Name (Z–A)</option>
+          </select>
+        </div>
+
+        <button id="clearBtn" class="btn btn-clear">
+          <span>↻</span> Clear
+        </button>
+      </div>
+
+      <!-- Category quick filters -->
+      <div class="category-tabs" aria-label="Quick category filters">
+        <button class="tab active" data-category="all">All Events</button>
+        <button class="tab" data-category="Music"><span>♫</span> Music</button>
+        <button class="tab" data-category="Tech"><span>▣</span> Tech</button>
+        <button class="tab" data-category="Workshops"><span>✎</span> Workshops</button>
+        <button class="tab" data-category="Food & Drink"><span>♨</span> Food &amp; Drink</button>
+        <button class="tab" data-category="Sports"><span>⚽</span> Sports</button>
+        <button class="tab" data-category="Arts"><span>◉</span> Arts</button>
+        <button class="tab" data-category="Others"><span>•••</span> Others</button>
+      </div>
+
+      <!-- Saved events and user applications -->
+      <div class="personal-actions">
+        <div class="results-info">
+          <span class="results-indicator"></span>
+          <p id="resultCount">Loading events...</p>
+        </div>
+
+        <div class="personal-action-buttons">
+          <button id="savedToggle" class="btn btn-soft">
+            <span>♡</span>
+            Saved <span class="count-pill" id="savedCount">0</span>
+          </button>
+          <button id="myApplicationsBtn" class="btn btn-soft" hidden>
+            <span>▤</span> My Applications
+          </button>
+          <button id="organizerBtn" class="btn btn-soft" hidden>
+            <span>▦</span> Organizer Dashboard
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamically rendered cards -->
+      <section
+        id="eventGrid"
+        class="event-grid"
+        aria-label="Available events"
+        aria-live="polite"
+      ></section>
+
+      <!-- Empty state -->
+      <section id="noResults" class="no-results" hidden>
+        <div class="empty-illustration">
+          <span>⌕</span>
+        </div>
+        <h2>No Results Found</h2>
+        <p>
+          We couldn't find any events matching your search.
+          Try adjusting your filters or exploring another category.
+        </p>
+        <button id="emptyClearBtn" class="btn btn-primary">
+          Reset Filters
+        </button>
+      </section>
+
+      <!-- =========================
+           MY APPLICATIONS
+      ========================== -->
+      <section id="applicationsPanel" class="data-panel" hidden>
+        <div class="panel-heading">
+          <div>
+            <div class="eyebrow">YOUR EVENT JOURNEY</div>
+            <h2>My Applications</h2>
+            <p>Keep track of your event registrations.</p>
+          </div>
+          <button class="btn btn-outline" data-close="applicationsPanel">
+            Close ✕
+          </button>
+        </div>
+        <div id="myApplicationsList" class="applications-list"></div>
+      </section>
+
+      <!-- =========================
+           ORGANIZER DASHBOARD
+      ========================== -->
+      <section id="organizerPanel" class="data-panel" hidden>
+        <div class="panel-heading">
+          <div>
+            <div class="eyebrow">EVENT MANAGEMENT</div>
+            <h2>Organizer Dashboard</h2>
+            <p>Review applications and manage attendees.</p>
+          </div>
+          <button class="btn btn-outline" data-close="organizerPanel">
+            Close ✕
+          </button>
+        </div>
+
+        <div class="organizer-toolbar">
+          <div class="filter-control organizer-select">
+            <label for="organizerEventFilter">Choose an event</label>
+            <select id="organizerEventFilter">
+              <option value="">All Events</option>
+            </select>
+          </div>
+          <div class="organizer-note">
+            <span>ⓘ</span>
+            Applicant information is visible to authorized organizers only.
+          </div>
+        </div>
+
+        <div id="applicantList" class="applicant-list"></div>
+      </section>
+
+    </section>
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+    <section class="about-section section-container" id="about">
+      <div class="about-card">
+        <div class="about-symbol">✳</div>
+        <div class="about-content">
+          <div class="eyebrow">MORE THAN JUST EVENTS</div>
+          <h2>Every great memory <span class="gradient-text">starts somewhere.</span></h2>
+          <p>
+            Event Explorer helps you discover exciting experiences,
+            connect with communities and take the next step toward
+            something new. Whether you're into music, technology,
+            art or adventure, there's something waiting for you.
+          </p>
+          <a href="#events" class="btn btn-primary">
+            Find Your Event <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="#" class="brand footer-brand">
+        <span class="brand-icon">✳</span>
+        <span class="brand-name">Event<span>Explorer</span></span>
+      </a>
+
+      <p>Discover. Connect. Experience.</p>
+
+      <span class="footer-copyright">
+        © 2026 Event Explorer. All rights reserved.
+      </span>
+    </div>
+  </footer>
+
+  <!-- =========================
+       AUTHENTICATION DIALOG
+  ========================== -->
+  <dialog id="authDialog" class="app-dialog">
+    <div class="dialog-decoration"></div>
+
+    <div class="dialog-heading">
+      <div>
+        <div class="dialog-brand">✳ EVENT EXPLORER</div>
+        <h2 id="authTitle">Welcome Back</h2>
+        <p>Sign in to continue your event journey.</p>
+      </div>
+
+      <button
+        type="button"
+        class="close-btn"
+        data-close-dialog="authDialog"
+        aria-label="Close dialog"
+      >✕</button>
+    </div>
+
+    <form id="authForm" class="dialog-form">
+      <div id="nameField" hidden>
+        <label for="authName">Full Name</label>
+        <input
+          id="authName"
+          type="text"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          maxlength="100"
+        >
+      </div>
+
+      <div class="form-field">
+        <label for="authEmail">Email Address</label>
+        <input
+          id="authEmail"
+          type="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          maxlength="254"
+          required
+        >
+      </div>
+
+      <div class="form-field">
+        <label for="authPassword">Password</label>
+        <input
+          id="authPassword"
+          type="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          minlength="8"
+          maxlength="128"
+          required
+        >
+      </div>
+
+      <p id="authMessage" class="form-message"
+         role="status" aria-live="polite"></p>
+
+      <button id="authSubmit" class="btn btn-primary btn-submit" type="submit">
+        Sign In <span>→</span>
+      </button>
+    </form>
+
+    <div class="auth-divider"><span>OR</span></div>
+
+    <p class="switch-auth">
+      <span id="authSwitchText">Don't have an account?</span>
+      <button id="authSwitchBtn" type="button">Create Account</button>
+    </p>
+
+    <p class="dialog-legal">
+      By continuing, you agree to use Event Explorer responsibly.
+    </p>
+  </dialog>
+
+  <!-- =========================
+       APPLY FOR EVENT DIALOG
+  ========================== -->
+  <dialog id="applyDialog" class="app-dialog apply-dialog">
+    <div class="dialog-decoration"></div>
+
+    <div class="dialog-heading">
+      <div>
+        <div class="dialog-brand">✳ EVENT REGISTRATION</div>
+        <h2>You're Invited!</h2>
+        <p>Complete your details to apply for this event.</p>
+      </div>
+
+      <button
+        type="button"
+        class="close-btn"
+        data-close-dialog="applyDialog"
+        aria-label="Close dialog"
+      >✕</button>
+    </div>
+
+    <div class="selected-event">
+      <div class="selected-event-icon">🎟</div>
+      <div>
+        <span class="selected-event-label">APPLYING FOR</span>
+        <h3 id="applyEventName">Event Name</h3>
+      </div>
+    </div>
+
+    <form id="applyForm" class="dialog-form">
+      <input type="hidden" id="applyEventId">
+
+      <div class="form-field">
+        <label for="applicantName">Full Name</label>
+        <input
+          id="applicantName"
+          type="text"
+          placeholder="Your full name"
+          maxlength="100"
+          autocomplete="name"
+          required
+        >
+      </div>
+
+      <div class="form-field">
+        <label for="applicantPhone">Phone Number</label>
+        <input
+          id="applicantPhone"
+          type="tel"
+          placeholder="Enter your phone number"
+          maxlength="25"
+          autocomplete="tel"
+          required
+        >
+      </div>
+
+      <div class="form-field">
+        <label for="applicantNotes">Additional Information <span>(Optional)</span></label>
+        <textarea
+          id="applicantNotes"
+          rows="4"
+          maxlength="1000"
+          placeholder="Tell the organizer anything important..."
+        ></textarea>
+      </div>
+
+      <div class="form-hint">
+        <span>🔒</span>
+        Your registration details will be shared with the event organizer.
+      </div>
+
+      <p id="applyMessage" class="form-message"
+         role="status" aria-live="polite"></p>
+
+      <button class="btn btn-primary btn-submit" type="submit">
+        Submit Application <span>→</span>
+      </button>
+    </form>
+  </dialog>
+
+  <!-- =========================
+       EVENT DETAILS DIALOG
+  ========================== -->
+  <dialog id="detailsDialog" class="app-dialog details-dialog">
+    <div class="dialog-heading">
+      <div>
+        <div class="dialog-brand">✳ EVENT EXPLORER</div>
+        <h2>Event Details</h2>
+      </div>
+      <button
+        type="button"
+        class="close-btn"
+        data-close-dialog="detailsDialog"
+        aria-label="Close dialog"
+      >✕</button>
+    </div>
+
+    <div id="detailsContent"></div>
+  </dialog>
+
+  <!-- =========================
+       TOAST NOTIFICATIONS
+  ========================== -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
