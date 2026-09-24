@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: event-explorer
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+    disk:
+      name: event-data
+      mountPath: /opt/render/project/src/server-data
+      sizeGB: 1
